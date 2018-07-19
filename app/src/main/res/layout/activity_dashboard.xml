@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".DashboardActivity">
+
+    <TextView
+        android:id="@+id/tv_display"
+        style="@style/LayoutDimen"
+        android:background="@color/headerColor"
+        android:padding="@dimen/textViewPadding"
+        android:textSize="@dimen/displayTextSize"
+        android:text="@string/dashboard"
+        android:textColor="@color/white"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_username"
+        style="@style/LayoutDimen"
+        android:layout_margin="@dimen/usernameLayoutMargin"
+        android:textSize="@dimen/usernameTextSize"
+        />
+
+    <Button
+        android:id="@+id/btn_location"
+        style="@style/LayoutDimen"
+        android:layout_margin="@dimen/locationLayoutMargin"
+        android:text="@string/find_location"
+        android:background="@drawable/bordered_edit_text"
+        />
+
+    <Button
+        android:id="@+id/btn_phone"
+        style="@style/LayoutDimen"
+        android:layout_margin="@dimen/locationLayoutMargin"
+        android:text="@string/call"
+        android:background="@drawable/bordered_edit_text"
+        />
+
+    <Button
+        android:id="@+id/btn_email"
+        style="@style/LayoutDimen"
+        android:layout_margin="@dimen/locationLayoutMargin"
+        android:text="@string/send"
+        android:background="@drawable/bordered_edit_text"
+        />
+
+    <Button
+        android:id="@+id/btn_url"
+        style="@style/LayoutDimen"
+        android:layout_margin="@dimen/locationLayoutMargin"
+        android:text="@string/open_url"
+        android:background="@drawable/bordered_edit_text"
+        />
+
+    <Button
+        android:id="@+id/btn_profile"
+        style="@style/LayoutDimen"
+        android:layout_margin="@dimen/locationLayoutMargin"
+        android:text="@string/open_profile"
+        android:background="@drawable/bordered_edit_text"
+        />
+
+
+</LinearLayout>
+</ScrollView>

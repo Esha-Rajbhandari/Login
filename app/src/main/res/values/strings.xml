@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">LogUp</string>
+    <string name="log_in">Log In</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="sign_up">Sign Up</string>
+
+    <string name="tvRegister">Register</string>
+    <string name="your_logo">Your Logo</string>
+    <string name="sign_in">Sign In</string>
+    <string name="no_account">Don\'t have an account? Sign up here</string>
+    <string name="forgot_password">Forgot your password?</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="gender">Gender</string>
+    <string name="username">Username</string>
+    <string name="registration">Registration</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="address">Address</string>
+    <string name="phone">Phone</string>
+    <string name="choose_course">Choose course</string>
+    <string name="java">Java</string>
+    <string name="android">Android</string>
+    <string name="animation">Animation</string>
+    <string name="cancel_registration">Cancel Registration</string>
+    <string name="location">Location</string>
+    <string name="url">URL...</string>
+    <string name="find_location">Find Location</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="call">Call</string>
+    <string name="open_url">Open url</string>
+    <string name="open_profile">Open Profile</string>
+    <string name="send">Send and email</string>
+    <string name="account">Don\'t have an account. Register here.</string>
+
+
+</resources>

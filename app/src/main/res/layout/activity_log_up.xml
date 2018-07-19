@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".LogUpActivity">
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_height"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"/>
+
+    <EditText
+        android:id="@+id/edt_email"
+        style="@style/LayoutDimen"
+        android:layout_margin="@dimen/emailLayoutMargin"
+        android:background="@drawable/edittext_shadow"
+        android:hint="@string/email"
+        android:longClickable="false"
+        android:padding="@dimen/emailPadding" />
+
+    <EditText
+        android:id="@+id/edt_password"
+        style="@style/LayoutDimen"
+        android:layout_marginTop="@dimen/passMargintop"
+        android:layout_marginRight="@dimen/emailLayoutMargin"
+        android:layout_marginLeft="@dimen/emailLayoutMargin"
+        android:background="@drawable/edittext_shadow"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:longClickable="false"
+        android:padding="@dimen/emailPadding" />
+
+    <Button
+        android:id="@+id/btn_login"
+        style="@style/LayoutDimen"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_button_selected"
+        android:layout_marginTop="@dimen/loginMarginTop"
+        android:layout_marginLeft="@dimen/loginMarginLeft"
+        android:layout_marginRight="@dimen/loginMarginLeft"
+        android:text="@string/log_in"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen20dp"
+        android:layout_gravity="center"
+        android:text="@string/account"/>
+
+    <Button
+        android:id="@+id/btn_logup"
+        style="@style/LayoutDimen"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bordered_edit_text"
+        android:layout_marginTop="@dimen/loginMarginTop"
+        android:layout_marginLeft="@dimen/loginMarginLeft"
+        android:layout_marginRight="@dimen/loginMarginLeft"
+        android:text="@string/sign_up"
+        android:textColor="@color/logupTextColor" />
+</LinearLayout>

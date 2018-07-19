@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="layoutMargin">35dp</dimen>
+    <dimen name="usernameLayoutMargin">20dp</dimen>
+    <dimen name="locationLayoutMargin">20dp</dimen>
+
+    <dimen name="dimen20dp">20dp</dimen>
+    <dimen name="textFont20sp">20sp</dimen>
+    <dimen name="textSize">14sp</dimen>
+    <dimen name="textViewPadding">45dp</dimen>
+    <dimen name="textViewTxtSize">30sp</dimen>
+    <dimen name="profileMarginLeft">15dp</dimen>
+    <dimen name="profileMarginTop">15dp</dimen>
+    <dimen name="usernameTextSize">22sp</dimen>
+    <dimen name="DateTextSize">14sp</dimen>
+    <dimen name="userDatePadding">2dp</dimen>
+    <dimen name="contentPadding">12dp</dimen>
+    <dimen name="contentTextSize">12sp</dimen>
+    <dimen name="displayTextSize">40sp</dimen>
+    <dimen name="layout_height">250dp</dimen>
+    <dimen name="emailLayoutMargin">25dp</dimen>
+    <dimen name="emailPadding">10dp</dimen>
+    <dimen name="passMargintop">5dp</dimen>
+    <dimen name="loginMarginTop">35dp</dimen>
+    <dimen name="loginMarginLeft">60dp</dimen>
+    <dimen name="registerTextSize">30sp</dimen>
+    <dimen name="radioMarginTop">8dp</dimen>
+    <dimen name="rgMargin">5dp</dimen>
+    <dimen name="btnMargintop">15dp</dimen>
+    <dimen name="btnPadding">2dp</dimen>
+    <dimen name="btnTxtSize">15sp</dimen>
+</resources>

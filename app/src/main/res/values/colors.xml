@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="headerColor">#4f4487</color>
+    <color name="textColor">#ffffff</color>
+    <color name="bgTint">#e1e1e1</color>
+    <color name="txtColor">#9d9d9d</color>
+    <color name="signUpColor">#b485d8</color>
+    <color name="cancelRegColor">#d89d85</color>
+    <color name="profileTextColor">#282828</color>
+    <color name="white">#ffffff</color>
+    <color name="logupTextColor">#4d2a96</color>
+</resources>

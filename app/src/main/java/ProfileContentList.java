@@ -1,5 +1,9 @@
 package com.example.esha.logup;
 
+/**
+ * sets the required elements of an arraylist and gets the value
+ */
+
 public class ProfileContentList {
     private String username;
     private String content;

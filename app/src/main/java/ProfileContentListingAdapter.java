@@ -10,6 +10,11 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/**
+ * creates the view as per the amount of data present in the list.
+ * New Recycle view is created and the data is set to the view
+ */
+
 public class ProfileContentListingAdapter extends RecyclerView.Adapter<ProfileContentListingAdapter.ProfileViewHolder>{
     private ArrayList<ProfileContentList> profileList;
 

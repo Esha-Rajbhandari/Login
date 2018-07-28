@@ -8,6 +8,11 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+/**
+ * Creates a linear view and adds the list of data as an array.
+ * The data is set to the recycle view via adapter.
+ */
+
 public class MainProfileActivity extends AppCompatActivity {
     private RecyclerView rvProfile;
     @Override

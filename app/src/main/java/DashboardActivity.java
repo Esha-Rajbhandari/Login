@@ -1,17 +1,27 @@
-package com.example.esha.logup;
+package com.example.esha.login;
 
+import android.Manifest;
 import android.content.ActivityNotFoundException;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AlertDialog;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.esha.login.utils.ShowToast;
+
+/**
+ * Only initiates if the email and password is correct.
+ * Based on the number of buttons available, performs different actions.
+ * The user can place the call, open websites, open google map, send the email via approriate media
+ * and view the profile set using recycle view
+ */
 
 public class DashboardActivity extends AppCompatActivity implements View.OnClickListener{
     private String username;
@@ -25,6 +35,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
     private Button btnLocation;
     private Button btnUrl;
     private Button btnProfile;
+    static final int LOCATION=1;
+    static final int CALL=2;
     boolean doubleBackToExitPressedOnce = false;
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -33,8 +45,6 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
 
         createView();
         getIntentValue();
-
-
     }
 
     public void createView(){
@@ -81,28 +91,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
             startActivity(i);
         } catch (ActivityNotFoundException e) {
             // Chrome is probably not installed
-            AlertDialog.Builder alertDialogBuilder=new AlertDialog.Builder(DashboardActivity.this);
-            alertDialogBuilder.setTitle("Install");
-            alertDialogBuilder.setMessage("Do you want to install chrome in your device?");
-            alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    final String appPackageName = BuildConfig.APPLICATION_ID; // package name of the app
-                    try {
-                        startActivity(new Intent(Intent.ACTION_VIEW,
-                                Uri.parse("market://details?id=" + appPackageName)));
-                    } catch (android.content.ActivityNotFoundException anfe) {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
-                    }
-                }
-            });
-           alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-               @Override
-               public void onClick(DialogInterface dialogInterface, int i) {
-                   Toast.makeText(DashboardActivity.this, "Our app runs better on Google Chrome", Toast.LENGTH_SHORT).show();
-               }
-           });
-           alertDialogBuilder.show();
+            HelperAcitvity.createDialog(DashboardActivity.this,"Install","Do you want to install chrome in your device?","Yes","No");
         }
     }
 
@@ -126,8 +115,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         i.putExtra(Intent.EXTRA_TEXT   , "body of email");
         try {
             startActivity(Intent.createChooser(i, "Send mail..."));
-        } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(DashboardActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+        } catch (ActivityNotFoundException ex) {
+            ShowToast.showToast(DashboardActivity.this, "There are no email clients installed.", false);
         }
     }
 
@@ -136,17 +125,51 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         startActivity(profileIntent);
     }
 
+    public void getPermission(String permission, Integer requestCode){
+        if (ContextCompat.checkSelfPermission(DashboardActivity.this,permission)!=PackageManager.PERMISSION_GRANTED){
+            if(ActivityCompat.shouldShowRequestPermissionRationale(DashboardActivity.this,permission)){
+                ActivityCompat.requestPermissions(DashboardActivity.this, new String[]{permission}, requestCode);
+            }
+            else{
+                ActivityCompat.requestPermissions(DashboardActivity.this, new String[]{permission}, requestCode);
+            }
+        }
+        else{
+            ShowToast.showToast(this, "" + permission + " is already granted.", false);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults){
+        super.onRequestPermissionsResult(requestCode,permissions,grantResults);
+        if(ActivityCompat.checkSelfPermission(this, permissions[0])== PackageManager.PERMISSION_GRANTED){
+            switch(requestCode){
+                case 1:
+                    openMap();
+                    break;
+                case 2:
+                    placeCall();
+                    break;
+            }
+        }
+        else{
+            ShowToast.showToast(this, "Permission denied", false);
+        }
+    }
+
     @Override
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.btn_phone:
-                placeCall();
+                getPermission(Manifest.permission.CALL_PHONE,CALL);
+                //placeCall();
                 break;
             case R.id.btn_url:
                 openUrl();
                 break;
             case R.id.btn_location:
-                openMap();
+                getPermission(Manifest.permission.ACCESS_FINE_LOCATION,LOCATION);
+                //openMap();
                 break;
             case R.id.btn_email:
                 sendEmail();
@@ -163,9 +186,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
             super.onBackPressed();
             return;
         }
-
         this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+        ShowToast.showToast(this, "Please click BACK again to exit", true);
 
         new Handler().postDelayed(new Runnable() {
 

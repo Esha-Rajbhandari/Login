@@ -8,6 +8,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+
+/**
+ * This class sets the main layout and adds appropriate listeners.
+ * On click action corresponding functions are executed. Intent is used to navigate
+ * through different pages on button click.
+ */
+
+
 public class LogUpActivity extends AppCompatActivity implements View.OnClickListener{
     private ImageView imgLogo;
     private EditText edtEmail;
